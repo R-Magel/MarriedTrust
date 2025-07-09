@@ -1,0 +1,2531 @@
+metadata:
+  title: |
+    Married Trust Plan
+  author: Ryan Magel
+  tags:
+    - Trust
+    - Married
+  description: Trajan Estate Drafting program for a Married couple.
+  version: 1.1
+  date: 2025-05-28
+
+---
+on change:
+  client.name.last: |
+    set_parts(title=client.name.last + ' Estate Plan')
+
+---
+objects:
+  - client: Individual
+  - spouse: Individual
+  - children: DAList.using(object_type=Individual, there_are_any=True)
+  - childrenb: DAList.using(object_type=Individual, there_are_any=True)
+  - childrenh: DAList.using(object_type=Individual, there_are_any=True)
+  - childrenha: DAList.using(object_type=Individual, there_are_any=True)
+  - childrenhb: DAList.using(object_type=Individual, there_are_any=True)
+  - childrenhnum: DAObject
+  - childrenw: DAList.using(object_type=Individual, there_are_any=True)
+  - childrenwa: DAList.using(object_type=Individual, there_are_any=True)
+  - childrenwb: DAList.using(object_type=Individual, there_are_any=True)
+  - childrenwnum: DAObject
+  - childrend: DAList.using(object_type=Individual, there_are_any=True)
+  - childrendnum: DAObject
+  - children_number: DAObject
+  - cnum: DAObject
+  - address: Address
+  - firm: DAObject
+  - successortrustees: DAList.using(object_type=Individual, there_are_any=True)
+  - successortrusteesb: DAList.using(object_type=Individual, there_are_any=True)
+  - trustee_number: DAObject
+  - minorage: DAObject
+  - marital_share: DAObject
+  - beneficiaries: DAList.using(object_type=Individual, there_are_any=True)
+  - beneficiarieso: DAList.using(object_type=Individual, there_are_any=True)
+  - cashdistributionadc: DAList.using(object_type=Individual, there_are_any=True)
+  - trustdistributionadc: DAList.using(object_type=Individual, there_are_any=True)
+  - propertydistributionadc: DAList.using(object_type=Individual, there_are_any=True)
+  - occupancydistributionadc: DAList.using(object_type=Individual, there_are_any=True)
+  - cashdistributionads: DAList.using(object_type=Individual, there_are_any=True)
+  - trustdistributionads: DAList.using(object_type=Individual, there_are_any=True)
+  - propertydistributionads: DAList.using(object_type=Individual, there_are_any=True)
+  - occupancydistributionads: DAList.using(object_type=Individual, there_are_any=True)
+  - cashdistributionadb: DAList.using(object_type=Individual, there_are_any=True)
+  - trustdistributionadb: DAList.using(object_type=Individual, there_are_any=True)
+  - propertydistributionadb: DAList.using(object_type=Individual, there_are_any=True)
+  - occupancydistributionadb: DAList.using(object_type=Individual, there_are_any=True)
+  - guardians: DAList.using(object_type=Individual, there_are_any=True)
+  - personalrepclient: DAList.using(object_type=Individual, there_are_any=True)
+  - personalrepclientb: DAList.using(object_type=Individual, there_are_any=True)
+  - personalrepspouse: DAList.using(object_type=Individual, there_are_any=True)
+  - personalrepspouseb: DAList.using(object_type=Individual, there_are_any=True)
+  - dpoagentsclient: DAList.using(object_type=Individual, there_are_any=True)
+  - dpoagentsclientb: DAList.using(object_type=Individual, there_are_any=True)
+  - dpoagentsspouse: DAList.using(object_type=Individual, there_are_any=True)
+  - dpoagentsspouseb: DAList.using(object_type=Individual, there_are_any=True)
+  - hcpoagentsclient: DAList.using(object_type=Individual, there_are_any=True)
+  - hcpoagentsclientb: DAList.using(object_type=Individual, there_are_any=True)
+  - hcpoagentsspouse: DAList.using(object_type=Individual, there_are_any=True)
+  - hcpoagentsspouseb: DAList.using(object_type=Individual, there_are_any=True)
+  - hippaclient: DAList.using(object_type=Individual, there_are_any=True)
+  - hippaclientb: DAList.using(object_type=Individual, there_are_any=True)
+  - hippaspouse: DAList.using(object_type=Individual, there_are_any=True)
+  - hippaspouseb: DAList.using(object_type=Individual, there_are_any=True)
+  - trust_name: DAObject
+  - trust_date: DAObject
+  - marital_percent: DAObject
+  - disability_panel_type: DAObject
+  - pregnancy_languages: DAObject
+  - pregnancy_languagec: DAObject
+  - incapacity_priority: DAObject
+  - descendants_per_stirpes: DAObject
+  - named_beneficiaries: DAObject
+  - letter_of_instruction: DAObject
+  - provisions_for_guardian: DAObject
+  - trustee_blocking_power: DAObject
+  - pass_baton_early: DAObject
+  - bene_cant_be_trustee: DAObject
+  - no_personal_property_memor: DAObject
+  - co_trustee: DAObject
+  - sole_trustee: DAObject
+  - cosole_trustee: DAObject
+  - community_property: DAObject
+  - distribution_type: DAObject
+  - commonage: DAObject
+  - trustee_powers: DAObject
+  - cot_one: DAObject
+  - cot_two: DAObject
+  - cot_three: DAObject
+  - cot_four: DAObject
+  - cot_five: DAObject
+  - cot_six: DAObject
+  - fiduciary_powers: DAObject
+  - hippa_statute: DAObject
+  - vehicle_funding: DAObject
+  - benefits_trust: DAObject
+  - lw_intro: DAObject
+  - documents: DAFileCollection
+  - willstatusc: DAObject
+  - willstatuss: DAObject
+  - relationstatusc: DAObject
+  - relationstatuss: DAObject
+  - subtrustpoa: DAObject
+  - children_number_ordinal: DAObject
+  - refone: DAObject
+  - reftwo: DAObject
+  - refthree: DAObject
+  - reffour: DAObject
+  - reffive: DAObject
+  - refsix: DAObject
+  - refseven: DAObject
+  - refeight: DAObject
+  - refnine: DAObject
+  - reften: DAObject
+  - refeleven: DAObject
+  - reftwelve: DAObject
+  - refthirteen: DAObject
+  - reffourteen: DAObject
+  - reffifteen: DAObject
+  - refsixteen: DAObject
+  - refseventeen: DAObject
+  - refeighteen: DAObject
+  - refnineteen: DAObject
+  - reftwenty: DAObject
+  - dp_number_c: DAObject
+  - hc_number_c: DAObject
+  - prep_number_c: DAObject
+  - dp_number_s: DAObject
+  - hc_number_s: DAObject
+  - prep_number_s: DAObject
+  - afterborn: DAObject
+  - afterborntrust: DAObject
+  - afterborntrustone: DAObject
+  - afterbornwill: DAObject
+  - afterbornwillone: DAObject
+  - othernamed: DAObject 
+  - specific_distributions_adc: DAObject
+  - specific_distributions_ads: DAObject
+  - specific_distributions_adb: DAObject
+  - county: DAObject
+  - trust_protector: DAObject
+  - tp: DAObject
+
+---
+event: review_answers
+question: |
+  Review Your Answers
+review:
+  - Edit:
+      - client
+    button: |
+      #### Client Information
+
+      * ${ client.name }
+      * ${ client.birthdate }
+      * ${ client.marriage_date }
+      * Number of Children ${ cnum }
+      * Include Living Will Pregnancy Language ${ pregnancy_languagec }
+      * Client Gender ${ client.gender }
+  - Edit:
+      - spouse
+    button: |
+      #### Spouse Information
+
+      * ${ spouse.name }
+      * ${ spouse.birthdate }
+      * Include Living Will Pregnancy Language ${ pregnancy_languages }
+      * Client Gender ${ spouse.gender }
+  - Edit:
+      - address
+    button: |
+      #### Client Address
+
+      ${ address }     
+      ${ address.county }
+  - Edit:
+      - trust_name
+    button: |
+      #### Trust Information
+
+      ${ trust_name } dated ${ trust_date }     
+      
+      * Include Trust Protector ${ trust_protector }
+      * Marital Share Funding ${ marital_share }
+      * Incapacity Determination ${ disability_panel_type }
+      * Include Afterborn Children ${ afterborn }
+      * Include Other Named Beneficiaries ${ othernamed }
+  - note: |
+      #### Children
+      % if cnum == 0:
+      The clients do not have children
+      % else:
+      ${ children.table }
+
+      ${ children.add_action() }
+      % endif
+  - note: |
+      #### Successor Agents
+
+      ${ successortrustees.table }
+
+      ${ successortrustees.add_action() }
+  - note: |
+      #### Client's Personal Representatives
+
+      ${ personalrepclient.table }
+
+      ${ personalrepclient.add_action() }
+  - note: |
+      #### ${ spouse.name.first }'s Personal Representatives
+
+      ${ personalrepspouse.table }
+
+      ${ personalrepspouse.add_action() }
+  - note: |
+      #### ${ client.name.first }'s Financial Agents
+
+      ${ dpoagentsclient.table }
+
+      ${ dpoagentsclient.add_action() }
+  - note: |
+      #### ${ spouse.name.first }'s Financial Agents
+
+      ${ dpoagentsspouse.table }
+
+      ${ dpoagentsspouse.add_action() }
+  - note: |
+      #### ${ client.name.first }'s Medical Agents
+
+      ${ hcpoagentsclient.table }
+
+      ${ hcpoagentsclient.add_action() }
+  - note: |
+      #### ${ spouse.name.first }'s Medical Agents
+
+      ${ hcpoagentsspouse.table }
+
+      ${ hcpoagentsspouse.add_action() }
+  - note: |
+      #### ${ client.name.first }'s HIPPA Agents
+
+      ${ hippaclient.table }
+
+      ${ hippaclient.add_action() }
+  - note: |
+      #### ${ spouse.name.first }'s HIPPA Agents
+
+      ${ hippaspouse.table }
+
+      ${ hippaspouse.add_action() }
+  - note: |
+      #### Beneficiaries
+
+      ${ beneficiaries.table }
+
+      ${ beneficiaries.add_action() }
+  - Edit:
+      - minorage
+    button: |
+      #### Final Trustor Death
+
+      * Age to be considered a minor ${ minorage }
+      * Distribution Type ${ distribution_type }
+      * Decendents Per Stirpes ${ decendants_per_stirpes }
+      * Named Beneficiaries ${ named_beneficiaries }
+      * Letter of Instruction ${ letter_of_instruction }
+      * Provisions for Guardian ${ provision_for_guardian }
+      * Trustee Blocking Power ${ trustee_blocking_power }
+      * Pass Baton Early ${ pass_baton_early }
+            
+---
+mandatory: True
+code: |
+  menu_items = [ action_menu_item('Review Answers', 'review_answers') ]
+  
+---
+mandatory: True
+question: |
+  Client Information
+
+fields:
+  - First Name: client.name.first
+  - Middle Initial: client.name.middle
+    required: False
+  - Last Name: client.name.last
+  - Date of Birth: client.birthdate
+    datatype: date
+  - Date of Marriage: client.marriage_date
+    datatype: date
+  - How many children does the client and Spouse have: cnum
+    default: 0 
+    datatype: range
+    min: 0
+    max: 10
+  - Include Pregnancy Language in Living Will?: pregnancy_languagec
+    default: false
+    datatype: yesnoradio
+  - Gender: client.gender
+    input type: radio
+    choices:
+     - male
+     - female
+     - other
+
+---
+mandatory: True
+code: |
+  if client.gender == 'female':
+    willstatusc = 'Testatrix'
+  else:
+    willstatusc = 'Testator'
+
+---
+mandatory: True
+code: |
+  if client.gender == 'male':
+    relationshipstatusc = 'wife'
+  else:
+    relationshipstatusc = 'husband'
+
+---
+question: |
+  ${ client.name }'s Spouse Information
+
+fields:
+  - First Name: spouse.name.first
+  - Middle Initial: spouse.name.middle
+    required: False
+  - Last Name: spouse.name.last
+  - Date of Birth: spouse.birthdate
+    datatype: date
+  - Include Pregnancy Language in Living Will?: pregnancy_languages
+    default: false
+    datatype: yesnoradio
+  - Gender: spouse.gender
+    input type: radio
+    choices:
+     - male
+     - female
+     - other
+
+---
+mandatory: True
+code: |
+  if spouse.gender == 'female':
+    willstatuss = 'Testatrix'
+  else:
+    willstatuss = 'Testator'
+
+---
+mandatory: True
+code: |
+  if spouse.gender == 'male':
+    relationshipstatuss = 'wife'
+  else:
+    relationshipstatuss = 'husband'   
+
+---
+question: |
+  ${ client.name }'s Address?
+  
+fields:
+  - Address: address.address
+  - Unit: address.unit
+    required: False
+  - City: address.city
+    required: False
+  - County: address.county
+    required: False
+  - State: address.state
+    code: states_list()
+  - Zip: address.zip
+    required: False
+    
+---
+mandatory: True
+code: |
+  address.geocode()
+  
+---
+question: |
+  Successor Trustees for the ${ trust_name }.
+
+fields:
+  - First Name: successortrustees[i].name.first
+  - Middle Initial: successortrustees[i].name.middle
+    required: False
+  - Last Name: successortrustees[i].name.last
+list collect: True
+    
+---
+question: |
+  Add another successor Trustee for ${ trust_name }
+yesno: successortrustees.there_is_another
+
+---
+mandatory: True
+code: |
+  trustee_number = successortrustees.number()  
+  
+---
+mandatory: True
+code: |
+  successortrusteesb = successortrustees.copy_deep('successortrusteesb')
+  successortrusteesc = successortrustees.copy_deep('successortrusteesc')
+  personalrepclient.append(spouse)
+  personalrepclient.extend(successortrusteesb)
+
+---
+mandatory: True
+code: |
+  successortrustees.table
+
+---
+table:
+  successortrustees.table
+rows:
+  successortrustees
+columns:
+  - Name: row_item
+edit:
+  - name.first
+  - name.middle
+  - name.last
+  
+---
+mandatory: True
+code: |
+  personalrepclient.table
+
+---
+table:
+  personalrepclient.table
+rows:
+  personalrepclient
+columns:
+  - Name: row_item
+edit:
+  - name.first
+  - name.middle
+  - name.last  
+  
+---
+mandatory: True
+code: |
+  prep_number_c = personalrepclient.number()  
+  
+---
+mandatory: True
+code: |
+  personalrepspouse.append(client)
+  personalrepspouse.extend(successortrusteesc)
+
+---
+mandatory: True
+code: |
+  personalrepspouse.table
+
+---
+table:
+  personalrepspouse.table
+rows:
+  personalrepspouse
+columns:
+  - Name: row_item
+edit:
+  - name.first
+  - name.middle
+  - name.last  
+  
+---
+mandatory: True
+code: |
+  prep_number_s = personalrepspouse.number()  
+  
+---
+mandatory: True
+code: |
+  personalrepclientb = personalrepclient.copy_deep('personalrepclientb')
+  dpoagentsclient.extend(personalrepclientb)
+
+---
+mandatory: True
+code: |
+  dpoagentsclient.table
+
+---
+table:
+  dpoagentsclient.table
+rows:
+  dpoagentsclient
+columns:
+  - Name: row_item
+edit:
+  - name.first
+  - name.middle
+  - name.last  
+  
+---
+mandatory: True
+code: |
+  dp_number_c = dpoagentsclient.number()  
+  
+---
+mandatory: True
+code: |
+  personalrepspouseb = personalrepspouse.copy_deep('personalrepspouseb')
+  dpoagentsspouse.extend(personalrepspouseb) 
+  
+---
+mandatory: True
+code: |
+  dpoagentsspouse.table
+
+---
+table:
+  dpoagentsspouse.table
+rows:
+  dpoagentsspouse
+columns:
+  - Name: row_item
+edit:
+  - name.first
+  - name.middle
+  - name.last  
+  
+---
+mandatory: True
+code: |
+  dp_number_s = dpoagentsspouse.number()  
+  
+---
+mandatory: True
+code: |
+  dpoagentsclientb = dpoagentsclient.copy_deep('dpoagentsclientb')
+  hcpoagentsclient.extend(dpoagentsclientb)
+  
+---
+mandatory: True
+code: |
+  hcpoagentsclient.table
+
+---
+table:
+  hcpoagentsclient.table
+rows:
+  hcpoagentsclient
+columns:
+  - Name: row_item
+edit:
+  - name.first
+  - name.middle
+  - name.last  
+  
+---
+mandatory: True
+code: |
+  hc_number_c = hcpoagentsclient.number()  
+
+---
+mandatory: True
+code: |
+  dpoagentsspouseb = dpoagentsspouse.copy_deep('dpoagentsspouseb')
+  hcpoagentsspouse.extend(dpoagentsspouseb)
+  
+---
+mandatory: True
+code: |
+  hcpoagentsspouse.table
+
+---
+table:
+  hcpoagentsspouse.table
+rows:
+  hcpoagentsspouse
+columns:
+  - Name: row_item
+edit:
+  - name.first
+  - name.middle
+  - name.last  
+  
+---
+mandatory: True
+code: |
+  hc_number_s = hcpoagentsspouse.number()  
+  
+---
+mandatory: True
+code: |
+  hcpoagentsclientb = hcpoagentsclient.copy_deep('hcpoagentsclientb')
+  hippaclient.extend(hcpoagentsclient)
+
+---
+mandatory: True
+code: |
+  hippaclient.table
+
+---
+table:
+  hippaclient.table
+rows:
+  hippaclient
+columns:
+  - Name: row_item
+edit:
+  - name.first
+  - name.middle
+  - name.last  
+  
+---
+mandatory: True
+code: |
+  hcpoagentsspouseb = hcpoagentsspouse.copy_deep('hcpoagentsspouseb')
+  hippaspouse.extend(hcpoagentsspouse)
+  
+---
+mandatory: True
+code: |
+  hippaspouse.table
+
+---
+table:
+  hippaspouse.table
+rows:
+  hippaspouse
+columns:
+  - Name: row_item
+edit:
+  - name.first
+  - name.middle
+  - name.last    
+  
+---
+Mandatory: True
+code: |
+  children.table
+  
+---
+table:
+  children.table
+rows:
+  children
+columns:
+  - Name: row_item.name
+  - Birthdate: row_item.birthdate
+  - Gender: row_item.gender
+  - Relationship: row_item.relationship
+edit:
+  - name.first
+  - name.middle
+  - name.last
+  - birthdate
+  - gender
+  - relationship
+  
+---
+Mandatory: True
+code: |
+  childrenb = children.copy_deep('childrenb')
+  beneficiaries.extend(children) 
+  
+---
+mandatory: True
+code: |
+  beneficiaries.table
+  
+---
+table:
+  beneficiaries.table
+rows:
+  beneficiaries
+columns:
+  - Name: row_item.name
+  - Gender: row_item.gender
+  - Relationship: row_item.relationship
+  - Has Special Needs: row_item.special
+  - Inheritance: row_item.inheritance_percentage
+edit:
+  - name.first
+  - name.middle
+  - name.last
+  - gender
+  - relationship
+  - special
+  - inheritance_percentage
+  
+---
+mandatory: True
+code: |
+ if address.state == 'AZ':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, lwts, rsmc, rsms, gdpoaazc, gdpoaazs, hcpoaazc, hcpoaazs, hippasc, hippass, lwsc, lwss, azswdcp, azswdt, dmvazc, dmvazs]
+ elif address.state == 'CO':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, lwts, rsmc, rsms, gdpoacoc, gdpoacos, hcpoacoc, hcpoacos, hippafc, hippafs, lwsc, lwss, coswdcp, coswdt, dmvco]
+ elif address.state == 'FL':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, affflc, lwts, afffls, rsmc, rsms, gdpoaflc, gdpoafls, hcpoaflc, hcpoafls, hippafc, hippafs, lwsc, lwss, flswdcp, flswdt]
+ elif address.state == 'GA':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, affgac, lwts, affgas, rsmc, rsms, gdpoagac, gdpoagas, hcpoagac, hcpoagas, hippasc, hippass, gaswdcp, gaswdt]
+ elif address.state == 'IL':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, lwts, rsmc, rsms, gdpoailc, gdpoails, hcpoailc, hcpoails, hippasc, hippass, lwilc, lwils]
+ elif address.state == 'IN':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, lwts, rsmc, rsms, gdpoainc, gdpoains, hcpoainc, hcpoains, hippafc, hippafs, lwinc, lwins, inswdcp, inswdt]
+ elif address.state == 'NC':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, lwts, rsmc, rsms, gdpoancc, gdpoancs, hcpoancc, hcpoancs, hippasc, hippass, lwncc, lwncs]
+ elif address.state == 'OR':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, afforc, lwts, affors, rsmc, rsms, gdpoaorc, gdpoaors, hcpoaorc, hcpoaors, hippasc, hippass]
+ elif address.state == 'TX':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, afftxc, lwts, afftxs, rsmc, rsms, gdpoatxc, poantcc, gdpoatxs, poantcs, hcpoatxc, hcpoatxs, hippafc, hippafs, lwsc, lwss, txswdcp, txswdt, dmvtxros, dmvtx, dmvtxapplication]
+ elif address.state == 'UT':
+  documents = [matter_summary, trust, cot, assignment, ppmc, ppms, fi, lwtc, lwts, rsmc, rsms, gdpoautc, gdpoauts, hcpoautc, hcpoauts, hippafc, hippafs]
+ else:
+  documents = [fail]
+ 
+---
+question: |
+  General Trust Information
+subquestion: The Clients live in ${ address.county }. Please type just the name of the county excluding any additional information such as County, Parrish, Etc.
+fields:
+  - Trust Name: trust_name
+  - Trust Date: trust_date
+    datatype: date
+  - Signing County: county
+  - Trust Protector: trust_protector
+    default: True
+    datatype: yesnoradio
+  - Marital Share Funding: marital_share
+    default: disclaim
+    input type: dropdown
+    choices:
+      - All to Marital Share: all_marital
+      - All to Marital Share with any disclaimed amounts going to Non-Marital Share: disclaim
+      - Stated percentage or fraction to Marital Share: fraction
+      - Clayton Election: clayton
+      - Pecuniary Marital Formula: pecuniary
+      - Fractional marital Formula: fractional
+      - Pecuniary Credit Shelter Formula: shelter
+      - All to Non-Marital None to Marital Share: allnon
+  - Determination of Incapacity: disability_panel_type
+    default: Disability Panel
+    input type: dropdown
+    choices:
+      - Disability Panel
+      - two physicians
+      - attending physician
+  - Include Afterborn Children: afterborn
+    default: false
+    datatype: yesnoradio
+  - Include Other Named Beneficiaries: othernamed
+    default: false
+    datatype: yesnoradio
+
+---
+mandatory: True
+code: |
+  if afterborn == True:
+    afterborntrust = 'All references in this document to our children are references to these children, and any children subsequently born to us or adopted by us by legal proceeding.'
+  elif afterborn == False:
+    afterborntrust = 'All references in this document to our children are references to these children.'
+  
+---
+mandatory: True
+code: |
+  if afterborn == True:
+    afterborntrustone = 'All references in this document to our children are references to these children, and any children subsequently born to us or adopted by us by legal proceeding.'
+  elif afterborn == False:
+    afterborntrustone = 'All references in this document to our child are references to this child.'
+  
+---
+mandatory: True
+code: |
+  if afterborn == True:
+    afterbornwill = 'All references in this document to my children are to these children, as well as any children subsequently born to me or adopted by me by legal proceeding valid in the domestic or foreign jurisdiction in which it occoured.'
+  elif afterborn == False:
+    afterbornwill = 'All references in this document to my children are references to these children.'
+
+---
+mandatory: True
+code: |
+  if afterborn == True:
+    afterbornwillone = 'All references in this document to my children are references to this child, as well as any children subsequently born to me or adopted by me by legal proceeding valid in the domestic or foreign jurisdiction in which it occoured.'
+  elif afterborn == False:
+    afterbornwillone = 'All references in this document to my child are references to this child.'  
+
+---
+mandatory: True
+code: |
+  if trust_protector == True:
+    tp = 'Trust Protector'
+  elif trust_protector == False:
+    tp = 'Independent Trustee'
+  
+---
+question: |
+ What percent or fraction should go to the Marital Share?
+fields: 
+  - Percent: marital_percent
+    
+---
+question: |
+  child(ren) and inheritance.
+
+fields:
+  - First Name: children[i].name.first
+    required: False
+  - Middle Initial: children[i].name.middle
+    required: False
+  - Last Name: children[i].name.last
+    required: False
+  - Date of Birth: children[i].birthdate
+    required: False
+    datatype: date
+  - Gender: children[i].gender
+    required: False
+    input type: radio
+    choices:
+     - male
+     - female
+     - other
+  - Relationship: children[i].relationship
+    required: False
+    input type: dropdown
+    choices:
+     - Son
+     - Daughter
+     - Son of ${ client.name }: sonc
+     - Daughter of ${ client.name }: daughterc
+     - Son of ${ spouse.name }: sons
+     - Daughter of ${ spouse.name }: daughters
+  - Disinherit: children[i].disinherit
+    required: False
+    default: false
+    datatype: yesnoradio
+list collect: True
+  
+---
+question: |
+  Add another child?
+yesno: children.there_is_another
+  
+---
+question: |
+  Beneficiaries and inheritance.
+
+fields:
+  - First Name: beneficiaries[i].name.first
+    required: False
+  - Middle Initial: beneficiaries[i].name.middle
+    required: False
+  - Last Name: beneficiaries[i].name.last
+    required: False
+  - Gender: beneficiaries[i].gender
+    required: False
+    input type: radio
+    choices:
+     - male
+     - female
+     - other
+  - Relationship: beneficiaries[i].relationship
+    required: False
+  - Does the Beneficiary have Special Needs: beneficiaries[i].special
+    required: False
+    default: false
+    datatype: yesnoradio
+  - Portion of Residual Estate: beneficiaries[i].inheritance_percentage
+    required: False
+list collect: True
+
+---
+question: |
+  Add Beneficiaries and Inheritance Ammount.
+yesno: beneficiaries.there_is_another
+  
+---
+mandatory: True
+code: |
+  children_number_ordinal = children.number()
+
+---
+mandatory: True
+code: |
+  childrend = childrenb.filter(disinherit=True)
+  childrend.there_is_another = False
+  childrendnum = childrend.number()
+  
+---
+mandatory: True
+code: |
+  childrenha = childrenb.filter(relationship='sonc')
+  childrenhb = childrenb.filter(relationship='daughterc')
+  childrenh.there_is_another = False
+  childrenh.extend(childrenha)
+  childrenh.extend(childrenhb)
+  childrenhnum = childrenh.number()
+
+---
+mandatory: True
+code: |
+  childrenwa = childrenb.filter(relationship='sons')
+  childrenwb = childrenb.filter(relationship='daughters')
+  childrenw.there_is_another = False
+  childrenw.extend(childrenwa)
+  childrenw.extend(childrenwb)
+  childrenwnum = childrenw.number()
+  
+---
+mandatory: True
+code: |
+  children_number = nice_number(children_number_ordinal)
+  
+---
+mandatory: True
+code: |
+  beneficiarieso = beneficiaries.difference(children)
+  beneficiarieso.there_is_another = False
+  
+---
+question: |
+  Personal Representatives for ${ client.name }.
+
+fields:
+  - First Name: personalrepclient[i].name.first
+  - Middle Initial: personalrepclient[i].name.middle
+    required: False
+  - Last Name: personalrepclient[i].name.last
+list collect: True
+    
+---
+question: |
+  Are there Personal Representatives other than the Successor Trustees for ${ client.name }?
+yesno: personalrepclient.there_is_another
+
+---
+question: |
+  Personal Representatives for ${ spouse.name }. 
+
+fields:
+  - First Name: personalrepspouse[i].name.first
+  - Middle Initial: personalrepspouse[i].name.middle
+    required: False
+  - Last Name: personalrepspouse[i].name.last
+list collect: True
+
+---
+question: |
+  Are there Personal Representatives other than the Successor Trustees for ${ spouse.name }?
+yesno: personalrepspouse.there_is_another
+
+---
+question: |
+  Financial Agents for ${ client.name }.
+
+fields:
+  - First Name: dpoagentsclient[i].name.first
+  - Middle Initial: dpoagentsclient[i].name.middle
+    required: False
+  - Last Name: dpoagentsclient[i].name.last
+list collect: True
+    
+---
+question: |
+  Are there Financial Agents other than the Personal Representatives for ${ client.name }?
+yesno: dpoagentsclient.there_is_another
+
+---
+question: |
+  Financial Agents for ${ spouse.name }.
+
+fields:
+  - First Name: dpoagentsspouse[i].name.first
+  - Middle Initial: dpoagentsspouse[i].name.middle
+    required: False
+  - Last Name: dpoagentsspouse[i].name.last
+list collect: True
+    
+---
+question: |
+  Are there Financial Agents other than the Personal Representatives for ${ spouse.name }?
+yesno: dpoagentsspouse.there_is_another
+    
+---
+question: |
+  Health Care Agents for ${ client.name }.
+
+fields:
+  - First Name: hcpoagentsclient[i].name.first
+  - Middle Initial: hcpoagentsclient[i].name.middle
+    required: False
+  - Last Name: hcpoagentsclient[i].name.last
+list collect: True
+    
+---
+question: |
+  Are there Health Care Agents other than the Financial Agents for ${ client.name }?
+yesno: hcpoagentsclient.there_is_another
+
+---
+question: |
+  Health Care Agents for ${ spouse.name }.
+
+fields:
+  - First Name: hcpoagentsspouse[i].name.first
+  - Middle Initial: hcpoagentsspouse[i].name.middle
+    required: False
+  - Last Name: hcpoagentsspouse[i].name.last
+list collect: True
+    
+---
+question: |
+  Are there Health Care Agents other than the Financial Agents for ${ spouse.name }?
+yesno: hcpoagentsspouse.there_is_another
+
+---
+question: |
+  HIPPA Agents for ${ client.name }.
+
+fields:
+  - First Name: hippaclient[i].name.first
+  - Middle Initial: hippaclient[i].name.middle
+    required: False
+  - Last Name: hippaclient[i].name.last
+list collect: True
+  
+---
+question: |
+  Are there HIPPA Agents other than the Health Care Agents for ${ client.name }
+yesno: hippaclient.there_is_another
+
+---
+question: |
+  HIPPA Agent for ${ spouse.name }.
+
+fields:
+  - First Name: hippaspouse[i].name.first
+  - Middle Initial: hippaspouse[i].name.middle
+    required: False
+  - Last Name: hippaspouse[i].name.last
+list collect: True
+    
+---
+question: |
+  Are there HIPPA Agents other than the Health Care Agents for ${ spouse.name }?
+yesno: hippaspouse.there_is_another
+
+---
+question: |
+ Final Trustor Death
+fields:
+ - Age to be considered a minor: minorage
+   default: 25
+ - Distribution Type: distribution_type
+   default: subtrust
+   input type: radio
+   choices:
+     - subtrust
+     - common trust
+     - outright
+ - Decendants Per Stirpes: decendants_per_stirpes
+   default: True
+   datatype: yesno
+ - Named Beneficiaries: named_beneficiaries
+   default: True
+   datatype: yesno
+ - Letter of Instruction: letter_of_instruction
+   default: True
+   datatype: yesno
+ - Provision for Guardian: provision_for_guardian
+   datatype: yesno
+ - Trustee Blocking Power: trustee_blocking_power
+   default: True
+   datatype: yesno
+ - Pass Baton Early: pass_baton_early
+   default: True
+   datatype: yesno
+ - Beneficiary cant be Trustee: bene_cant_be_trustee
+   datatype: yesno
+ - No Personal Property Memor: no_personal_property_memo
+   datatype: yesno
+ - Cotrustee at age: co_trustee
+   datatype: yesno
+ - Sole Trustee at age: sole_trustee
+   datatype: yesno
+ - Cotrustee and Sole Trustee at ages: cosole_trustee
+   datatype: yesno
+
+---
+question: |
+  At what age should the beneficiaries recieve distributions from the Common Trust?
+fields: 
+  - Age: commonage
+    default: 25
+
+---
+question: |
+  At what age should the beneficiaries be able to serve as cotrustee?
+fields: 
+  - Age: ctage
+    default: 25
+
+---
+question: |
+  At what age should the beneficiaries be able to serve as the sole trustee?
+fields: 
+  - Age: stage
+    default: 30
+    
+---
+question: |
+  Include Power of Appointment for Subtrust?
+
+fields:
+  - Power of Appointment?: subtrustpoa
+    default: True
+    datatype: yesnoradio
+  
+---
+question: |
+  Would you like to include Specific Distributions after the death of ${ client.name }? If so what distributions?
+fields:
+  - Cash Outright: cashoutrightadc
+    datatype: yesno
+  - Cash Trust: cashtrustadc
+    datatype: yesno
+  - Specific Property: specificpropertyadc
+    datatype: yesno
+  - Right of Occupancy: roodistributionadc
+    datatype: yesno
+
+---
+mandatory: True
+code: |
+  if cashoutrightadc:
+    cashdistributionadc
+
+---
+mandatory: True
+code: |
+  if cashtrustadc:
+    trustdistributionadc
+
+---
+mandatory: True
+code: |
+  if specificpropertyadc:
+    propertydistributionadc
+  
+---
+mandatory: True
+code: |
+  if roodistributionadc:
+    occupancydistributionadc
+  
+---
+question: |
+  Information for Outright Distributions after the death of ${ client.name }.
+
+fields:
+  - First Name: cashdistributionadc[i].name.first
+  - Middle Initial: cashdistributionadc[i].name.middle
+    required: False
+  - Last Name: cashdistributionadc[i].name.last
+  - Amount of distribution: cashdistributionadc[i].amount
+list collect: True
+
+---
+question: |
+  Is there another cash distribution?
+yesno: cashdistributionadc.there_is_another
+
+---
+question: |
+  Information for distributions in Trust after the death of ${ client.name }.
+
+fields:
+  - First Name: trustdistributionadc[i].name.first
+  - Middle Initial: trustdistributionadc[i].name.middle
+    required: False
+  - Last Name: trustdistributionadc[i].name.last
+  - Gender: trustdistributionadc[i].gender
+    input type: radio
+    choices:
+     - male
+     - female
+     - other
+  - Amount of distribution: trustdistributionadc[i].amount
+list collect: True
+
+---
+question: |
+  Is there another specific distribution held in trust?
+yesno: trustdistributionadc.there_is_another
+
+---
+question: |
+  Information for distributions of a Right of Occupancy after the death of ${ client.name }.
+
+fields:
+  - First Name: occupancydistributionadc[i].name.first
+  - Middle Initial: occupancydistributionadc[i].name.middle
+    required: False
+  - Last Name: occupancydistributionadc[i].name.last
+  - Amount of distribution: occupancydistributionadc[i].amount
+  - Address: occupancydistributionadc[i].propertyaddress
+  - City: occupancydistributionadc[i].propertycity
+  - State: occupancydistributionadc[i].propertystate
+    code: states_list()
+  - ZIP: occupancydistributionadc[i].propertyzip
+  - Assessor Parcel Number: occupancydistributionadc[i].propertyapn
+list collect: True
+
+---
+question: |
+  Is there another specific distribution for a right of occupancy?
+yesno: occupancydistributionadc.there_is_another
+
+---
+question: |
+  Information for distributions of specific personal property after the death of ${ client.name }.
+
+fields:
+  - First Name: propertydistributionadc[i].name.first
+  - Middle Initial: propertydistributionadc[i].name.middle
+    required: False
+  - Last Name: propertydistributionadc[i].name.last
+  - Description of Property to be Distributed: propertydistributionadc[i].description
+    input type: area
+    rows: 5
+list collect: True
+
+---
+question: |
+  Is there another specific distribution for a right of occupancy?
+yesno: propertydistributionadc.there_is_another
+
+---
+mandatory: True
+code: |
+  if specific_distributions_ads:
+    cashoutrightads
+  
+---
+question: |
+  Would you like to make Specific Distributions after the death of ${ spouse.name }? If so what distributions?
+fields:
+  - Cash Outright: cashoutrightads
+    datatype: yesno
+  - Cash Trust: cashtrustads
+    datatype: yesno
+  - Specific Property: specificpropertyads
+    datatype: yesno
+  - Right of Occupancy: roodistributionads
+    datatype: yesno
+
+---
+mandatory: True
+code: |
+  if cashoutrightads:
+    cashdistributionads
+
+---
+mandatory: True
+code: |
+  if cashtrustads:
+    trustdistributionads
+
+---
+mandatory: True
+code: |
+  if specificpropertyads:
+    propertydistributionads
+  
+---
+mandatory: True
+code: |
+  if roodistributionads:
+    occupancydistributionads
+  
+---
+question: |
+  Information for Outright Distributions after the death of ${ spouse.name }.
+
+fields:
+  - First Name: cashdistributionads[i].name.first
+  - Middle Initial: cashdistributionads[i].name.middle
+    required: False
+  - Last Name: cashdistributionads[i].name.last
+  - Amount of distribution: cashdistributionads[i].amount
+list collect: True
+
+---
+question: |
+  Is there another cash distribution?
+yesno: cashdistributionads.there_is_another
+
+---
+question: |
+  Information for distributions in Trust after the death of ${ spouse.name }.
+
+fields:
+  - First Name: trustdistributionads[i].name.first
+  - Middle Initial: trustdistributionads[i].name.middle
+    required: False
+  - Last Name: trustdistributionads[i].name.last
+  - Gender: trustdistributionads[i].gender
+    input type: radio
+    choices:
+     - male
+     - female
+     - other
+  - Amount of distribution: trustdistributionads[i].amount
+list collect: True
+
+---
+question: |
+  Is there another specific distribution held in trust?
+yesno: trustdistributionads.there_is_another
+
+---
+question: |
+  Information for distributions of a Right of Occupancy after the death of ${ spouse.name }.
+
+fields:
+  - First Name: occupancydistributionads[i].name.first
+  - Middle Initial: occupancydistributionads[i].name.middle
+    required: False
+  - Last Name: occupancydistributionads[i].name.last
+  - Amount of distribution: occupancydistributionads[i].amount
+  - Address: occupancydistributionads[i].propertyaddress
+  - City: occupancydistributionads[i].propertycity
+  - State: occupancydistributionads[i].propertystate
+    code: states_list()
+  - ZIP: occupancydistributionads[i].propertyzip
+  - Assessor Parcel Number: occupancydistributionads[i].propertyapn
+list collect: True
+
+---
+question: |
+  Is there another specific distribution for a right of occupancy?
+yesno: occupancydistributionads.there_is_another
+
+---
+question: |
+  Information for distributions of specific personal property after the death of ${ spouse.name }.
+
+fields:
+  - First Name: propertydistributionads[i].name.first
+  - Middle Initial: propertydistributionads[i].name.middle
+    required: False
+  - Last Name: propertydistributionads[i].name.last
+  - Description of Property to be Distributed: propertydistributionads[i].description
+    input type: area
+    rows: 5
+list collect: True
+
+---
+question: |
+  Is there another specific distribution for a right of occupancy?
+yesno: propertydistributionads.there_is_another
+
+---
+mandatory: True
+code: |
+  if specific_distributions_adb:
+    cashoutrightadb
+  
+---
+question: |
+  Would you like to make Specific Distributions after the death of both Trustors? If so what distributions?
+fields:
+  - Cash Outright: cashoutrightadb
+    datatype: yesno
+  - Cash Trust: cashtrustadb
+    datatype: yesno
+  - Specific Property: specificpropertyadb
+    datatype: yesno
+  - Right of Occupancy: roodistributionadb
+    datatype: yesno
+
+---
+mandatory: True
+code: |
+  if cashoutrightadb:
+    cashdistributionadb
+
+---
+mandatory: True
+code: |
+  if cashtrustadb:
+    trustdistributionadb
+
+---
+mandatory: True
+code: |
+  if specificpropertyadb:
+    propertydistributionadb
+  
+---
+mandatory: True
+code: |
+  if roodistributionadb:
+    occupancydistributionadb
+  
+---
+question: |
+  Information for Outright Distributions after the death of both Trustors.
+
+fields:
+  - First Name: cashdistributionadb[i].name.first
+  - Middle Initial: cashdistributionadb[i].name.middle
+    required: False
+  - Last Name: cashdistributionads[i].name.last
+  - Amount of distribution: cashdistributionadb[i].amount
+list collect: True
+
+---
+question: |
+  Is there another cash distribution?
+yesno: cashdistributionadb.there_is_another
+
+---
+question: |
+  Information for distributions in Trust after the death of both Trustors.
+
+fields:
+  - First Name: trustdistributionadb[i].name.first
+  - Middle Initial: trustdistributionadb[i].name.middle
+    required: False
+  - Last Name: trustdistributionadb[i].name.last
+  - Gender: trustdistributionadb[i].gender
+    input type: radio
+    choices:
+     - male
+     - female
+     - other
+  - Amount of distribution: trustdistributionadb[i].amount
+list collect: True
+
+---
+question: |
+  Is there another specific distribution held in trust?
+yesno: trustdistributionadb.there_is_another
+
+---
+question: |
+  Information for distributions of a Right of Occupancy after the death of both Trustors.
+
+fields:
+  - First Name: occupancydistributionadb[i].name.first
+  - Middle Initial: occupancydistributionadb[i].name.middle
+    required: False
+  - Last Name: occupancydistributionadb[i].name.last
+  - Amount of distribution: occupancydistributionadb[i].amount
+  - Address: occupancydistributionadb[i].propertyaddress
+  - City: occupancydistributionadb[i].propertycity
+  - State: occupancydistributionadb[i].propertystate
+    code: states_list()
+  - ZIP: occupancydistributionadb[i].propertyzip
+  - Assessor Parcel Number: occupancydistributionadb[i].propertyapn
+list collect: True
+
+---
+question: |
+  Is there another specific distribution for a right of occupancy?
+yesno: occupancydistributionadb.there_is_another
+
+---
+question: |
+  Information for distributions of specific personal property after the death of both Trustors.
+
+fields:
+  - First Name: propertydistributionadb[i].name.first
+  - Middle Initial: propertydistributionadb[i].name.middle
+    required: False
+  - Last Name: propertydistributionadb[i].name.last
+  - Description of Property to be Distributed: propertydistributionadb[i].description
+    input type: area
+    rows: 5
+list collect: True
+
+---
+question: |
+  Is there another specific distribution for a right of occupancy?
+yesno: propertydistributionadb.there_is_another
+
+---
+question: |
+  Guardians for minor children.
+
+fields:
+  - First Name: guardians[i].name.first
+  - Middle Initial: guardians[i].name.middle
+    required: False
+  - Last Name: guardians[i].name.last
+list collect: True
+    
+---
+question: |
+  Add Guardians for the minor children?
+yesno: guardians.there_is_another
+ 
+---
+mandatory: True
+code: |
+ if marital_share == 'all_marital':
+  refone = 'Section 11.01'
+  reftwo = 'Section 10.01'
+  refthree = 'Section 11.11'
+  reffour = 'Section 11.08'
+  reffive = 'Section 10.07(g)'
+  refsix = 'Section 9.03'
+  refseven = 'Section 9.02'
+  refeight = 'Article Eight'
+  refnine = 'Section 12.26'
+  reften = 'Section 13.01'
+  refeleven = 'Section 11.02'
+  reftwelve = 'Section 13.05'
+  refthirteen = 'Section 5.01'
+  reffourteen = 'Section 7.02'
+  reffifteen = 'Section 10.01(b)'
+  refsixteen = 'Article Nine'
+  refseventeen = 'Section 8.10'
+  refeighteen = 'Section 15.02'
+  refnineteen = 'Article Twelve'
+ elif marital_share == 'disclaim':
+  refone = 'Section 12.01'
+  reftwo = 'Section 11.01'
+  refthree = 'Section 13.11'
+  reffour = 'Section 13.08'
+  reffive = 'Section 11.07(g)'
+  refsix = 'Section 11.04'
+  refseven = 'Section 11.02'
+  refeight = 'Article Ten'
+  refnine = 'Section 13.26'
+  reften = 'Section 14.01'
+  refeleven = 'Section 12.02'
+  reftwelve = 'Section 15.05'
+  refthirteen = 'Article Seven'
+  reffourteen = 'Section 8.02'
+  reffifteen = 'Section 11.01(b)'
+  refsixteen = 'Article Ten'
+  refseventeen = 'Section 9.10'
+  refeighteen = 'Section 15.02'
+  refnineteen = 'Article Twelve'
+  reftwenty = 'Article Eight'
+ elif marital_share == 'fraction':
+  refone = 'Section 13.01'
+  reftwo = 'Section 12.01'
+  refthree = 'Section 13.11'
+  reffour = 'Section 13.08'
+  reffive = 'Section 12.07(g)'
+  refsix = 'Section 11.03'
+  refseven = 'Section 11.02'
+  refeight = 'Article Ten'
+  refnine = 'Section 14.26'
+  reften = 'Section 15.01'
+  refeleven = 'Section 13.02'
+  reftwelve = 'Section 15.05'
+  refthirteen = 'Article Seven'
+  reffourteen = 'Section 9.02'
+  reffifteen = 'Section 12.01(b)'
+  refsixteen = 'Article Eleven'
+  refseventeen = 'Section 10.09'
+  refeighteen = 'Section 15.02'
+  refnineteen = 'Article Twelve'
+ elif marital_share == 'clayton':
+  refone = 'Section 13.01'
+  reftwo = 'Section 12.01'
+  refthree = 'Section 13.11'
+  reffour = 'Section 13.08'
+  reffive = 'Section 12.07(g)'
+  refsix = 'Section 11.03'
+  refseven = 'Section 11.02'
+  refeight = 'Article Ten'
+  refnine = 'Section 14.26'
+  reften = 'Section 15.01'
+  refeleven = 'Section 13.02'
+  reftwelve = 'Section 15.05'
+  refthirteen = 'Article Eight'
+  reffourteen = 'Section 10.02'
+  reffifteen = 'Section 13.01(b)'
+  refsixteen = 'Article Twelve'
+  refseventeen = 'Section 11.09'
+  refeighteen = 'Section 15.02'
+  refnineteen = 'Article Twelve'
+ elif marital_share == 'pecuniary':
+  refone = 'Section 13.01'
+  reftwo = 'Section 12.01'
+  refthree = 'Section 13.11'
+  reffour = 'Section 13.08'
+  reffive = 'Section 12.07(g)'
+  refsix = 'Section 11.03'
+  refseven = 'Section 11.02'
+  refeight = 'Article Ten'
+  refnine = 'Section 14.26'
+  reften = 'Section 15.01'
+  refeleven = 'Section 13.02'
+  reftwelve = 'Section 15.05'
+  refthirteen = 'Article Eight'
+  reffourteen = 'Section 10.02'
+  reffifteen = 'Section 13.01(b)'
+  refsixteen = 'Article Twelve'
+  refseventeen = 'Section 11.09'
+  refeighteen = 'Section 15.02'
+  refnineteen = 'Article Twelve'
+ elif marital_share == 'fractional':
+  refone = 'Section 13.01'
+  reftwo = 'Section 12.01'
+  refthree = 'Section 13.11'
+  reffour = 'Section 13.08'
+  reffive = 'Section 12.07(g)'
+  refsix = 'Section 11.03'
+  refseven = 'Section 11.02'
+  refeight = 'Article Ten'
+  refnine = 'Section 14.26'
+  reften = 'Section 15.01'
+  refeleven = 'Section 13.02'
+  reftwelve = 'Section 15.05'
+  refthirteen = 'Article Eight'
+  reffourteen = 'Section 10.02'
+  reffifteen = 'Section 13.01(b)'
+  refsixteen = 'Article Twelve'
+  refseventeen = 'Section 11.09'
+  refeighteen = 'Section 15.02'
+  refnineteen = 'Article Twelve'
+ elif marital_share == 'shelter':
+  refone = 'Section 13.01'
+  reftwo = 'Section 12.01'
+  refthree = 'Section 13.11'
+  reffour = 'Section 13.08'
+  reffive = 'Section 12.07(g)'
+  refsix = 'Section 11.03'
+  refseven = 'Section 11.02'
+  refeight = 'Article Ten'
+  refnine = 'Section 14.26'
+  reften = 'Section 15.01'
+  refeleven = 'Section 13.02'
+  reftwelve = 'Section 15.05'
+  refthirteen = 'Article Seven'
+  reffourteen = 'Section 9.02'
+  reffifteen = 'Section 12.01(b)'
+  refsixteen = 'Article Eleven'
+  refseventeen = 'Section 10.09'
+  refeighteen = 'Section 15.02'
+  refnineteen = 'Article Twelve'
+ if marital_share == 'allnon':
+  refone = 'Section 11.01'
+  reftwo = 'Section 10.01'
+  refthree = 'Section 11.11'
+  reffour = 'Section 11.08'
+  reffive = 'Section 10.07(g)'
+  refsix = 'Section 9.03'
+  refseven = 'Section 9.02'
+  refeight = 'Article Eight'
+  refnine = 'Section 12.26'
+  reften = 'Section 13.01'
+  refeleven = 'Section 11.02'
+  reftwelve = 'Section 13.05'
+  refthirteen = 'Section 5.01'
+  refseventeen = 'Section 8.08'
+  refeighteen = 'Section 15.02'
+  refnineteen = 'Article Twelve'
+ 
+---
+mandatory: True
+code: |
+ if address.state == 'AZ':
+  trustee_powers = 'A.R.S. Sections 14-10825 and 14-10816'
+  fiduciary_powers = 'A.R.S. Section 14-3701, et. seq.'
+  hippa_statute = 'and A.R.S Sections 12-2291, et. seq.'
+  firm = 'Trajan Estate Law Firm'
+  community_property = True
+  vehicle_funding = 'We have provided you with an Arizona Department of Motor Vehicles beneficiary designation form, which will allow you to name a beneficiary for vehicles.  You can choose a beneficiary from among your Trust or individual beneficiaries.  This beneficiary form allows for the vehicle to pass to the designated beneficiary without going through probate. Please put a copy of each notarized vehicle beneficiary designation form and the title to each vehicle in the “VEHICLES” section of your Trust portfolio. We recommend naming your Trust as the TOD Beneficiary as follows:'
+  cot_authority = 'A.R.S. Section 14-11013'
+  cot_one = 'Pursuant to the provisions of A.R.S. § 14-11013(B), a certificate of trust may be signed by any Trustee'
+  cot_two = 'Pursuant to the provisions of A.R.S. § 14-11013(D), a certificate of trust need not contain the dispositive terms of the trust.'
+  cot_three = 'Pursuant to the provisions of A.R.S. § 14-11013(F), a person who acts in reliance on a certificate of trust without knowledge that the representations contained in the certificate are incorrect is not liable to any person for so acting and may assume without inquiry the existence of the facts contained in the certificate. Knowledge of the terms of the trust may not be inferred solely from the fact that a copy of all or part of the trust instrument is held by the person relying on the certificate.'
+  cot_four = 'Pursuant to the provisions of A.R.S. § 14-11013(G), a person who in good faith enters into a transaction in reliance on a certificate of trust may enforce the transaction against the trust property as if the representations contained in the certificate were correct.'
+  cot_five = 'Pursuant to the provisions of A.R.S. § 14-11013(H), a person making a demand for the trust instrument in addition to a certificate of trust or excerpts is liable for damages if the court determines that the person did not act in good faith in demanding the trust instrument.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS), Arizona Long Term Care System (ALTCS), Arizona Health Care Cost Containment System (AHCCCS)'
+  lw_intro = 'ARS §36-3261'
+ elif address.state == 'CO':
+  trustee_powers = 'C.R.S § 15-1-801, et. seq.'
+  fiduciary_powers = 'C.R.S § 15-1-801, et. seq.'
+  firm = 'Estate Lawyers, PLLC'
+  community_property = False
+  vehicle_funding = 'We have provided you with a Colorado Department of Motor Vehicles beneficiary designation form, which will allow you to name a beneficiary for vehicles.  You can choose a beneficiary from among your Trust or individual beneficiaries.  This beneficiary form allows for the vehicle to pass to the designated beneficiary without going through probate. Please put a copy of each notarized vehicle beneficiary designation form and the title to each vehicle in the “VEHICLES” section of your Trust portfolio. We recommend naming your Trust as the TOD Beneficiary as follows:'
+  cot_authority = 'C.R.S § 15-5-103'
+  cot_one = 'Pursuant to the provisions of C.R.S. § 15-5-1013(2), a certificate of trust may be signed by any Trustee'
+  cot_two = 'Pursuant to the provisions of C.R.S. § 15-5-1013(4), a certificate of trust need not contain the dispositive terms of the trust. '
+  cot_three = 'Pursuant to the provisions of C.R.S. § 15-5-1013(6), a person who acts in reliance on a certificate of trust without knowledge that the representations contained in the certificate are incorrect is not liable to any person for so acting and may assume without inquiry the existence of the facts contained in the certificate. Knowledge of the terms of the trust may not be inferred solely from the fact that a copy of all or part of the trust instrument is held by the person relying on the certificate.'
+  cot_four = 'Pursuant to the provisions of C.R.S. § 15-5-1013(7), a person who in good faith enters into a transaction in reliance on a certificate of trust may enforce the transaction against the trust property as if the representations contained in the certificate were correct.'
+  cot_five = 'Pursuant to the provisions of C.R.S. § 15-5-1013(8), a person making a demand for the trust instrument in addition to a certifcation of trust or excerpts is liable for damages if the court determines that the person did not act in good faith in demaning the trust instrument.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS)'
+  lw_intro = 'C.R.S. § 15-18-104'
+ elif address.state == 'FL':
+  trustee_powers = 'Florida Trust Code, Chapter 736, Part VIII'
+  fiduciary_powers = 'the Florida Probate Code, Section 733.608'
+  firm = 'Estate Lawyers, PLLC'
+  community_property = False
+  vehicle_funding = 'We have provided you with a Florida Application for Certificate of Motor Vehicle Title, which will allow you to name a beneficiary for vehicles.  You can choose a beneficiary from among your Trust or individual beneficiaries.  This beneficiary form allows for the vehicle to pass to the designated beneficiary without going through probate. Please put a copy of each notarized vehicle beneficiary designation form and the title to each vehicle in the “VEHICLES” section of your Trust portfolio. We recommend naming your Trust as the TOD Beneficiary as follows:'
+  cot_authority = 'the Florida Trust Code, Chapter 736.1017'
+  cot_one = 'Pursuant to the provisions of Section 736.1017(2) of the Florida Trust Code, a certificate of trust may be signed by any Trustee'
+  cot_two = 'Pursuant to the provisions of Section 736.1017(4) of the Florida Trust Code, a certificate of trust need not contain the dispositive terms of the trust.'
+  cot_three = 'Pursuant to the provisions of Section 736.1017(5) of the Florida Trust Code, a recipient of a certificate of trust may require the trustee to furnish copies of any excerpts from the original trust instrument and later amendments that designate the trustee and confer upon the trustee the power to act in the pending transaction.'
+  cot_four = 'Pursuant to the provisions of Section 736.1017(6) of the Florida Trust Code, a person who acts in reliance on a certificate of trust without knowledge that the representations contained in the certificate are incorrect is not liable to any person for so acting and may assume without inquiry the existence of the facts contained in the certificate.'
+  cot_five = 'Pursuant to the provisions of Section 736.1017(7) of the Florida Trust Code, a person who in good faith enters into a transaction in reliance on a certificate of trust may enforce the transaction against the trust property as if the representations contained in the certificate were correct.'
+  cot_six = 'This certificate is being signed by the currently acting trustee and is being executed in conformity with the provisions of Florida Trust Code Chapter 736 Section 1017.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS)'
+  lw_intro = 'Section 765.302 of the Life-Prolonging Procedure Act of Florida'
+ elif address.state == 'GA':
+  trustee_powers = 'O.C.G.A. § 53-12-261'
+  fiduciary_powers = 'O.C.G.A. § 53-12-261'
+  firm = 'Estate Lawyers, PLLC'
+  community_property = False
+  vehicle_funding = 'We have provided you with a Georgia Affidavit of Inheritance of a Motor Vehicle form, which will allow you to name a beneficiary for vehicles.  You can choose a beneficiary from among your Trust or individual beneficiaries.  This beneficiary form allows for the vehicle to pass to the designated beneficiary without going through probate. Please put a copy of each notarized vehicle beneficiary designation form and the title to each vehicle in the “VEHICLES” section of your Trust portfolio. We recommend naming your Trust as the TOD Beneficiary as follows:'
+  hippa_statute = 'O.C.G.A. § 31-33-2'
+  cot_authority = 'O.C.G.A. § 53-12-280'
+  cot_one = 'Pursuant to the provisions of GA Code § 53-12-280(c)(1), a certificate of trust shall be signed by each trustee.'
+  cot_two = 'Pursuant to the provisions of GA Code § 53-12-280(c)(3), a certificate of trust need not contain the dispositive terms of the trust.'
+  cot_three = 'Pursuant to the provisions of GA Code § 53-12-280(d), a recipient of a certificate of trust may require the trustee to furnish copies of those excerpts from the original trust instrument and later amendments that designate the trustee and confer upon the trustee the power to act in the pending transaction.'
+  cot_four = 'Pursuant to the provisions of GA Code § 53-12-280(e), a person who acts in reliance on a certificate of trust without knowledge that the representations contained in the certificate are incorrect is not liable to any person for so acting and may assume without inquiry the existence of the facts contained in the certificate.'
+  cot_five = 'Pursuant to the provisions of GA Code § 53-12-280(f), a person who in good faith enters into a transaction in reliance on a certificate of trust may enforce the transaction against the trust property as if the representations contained in the certificate were correct.'
+  cot_six = 'Pursuant to the provisions of GA Code § 53-12-280(g), a person making a demand for the trust instrument in addition to a certificate of trust or excerpts is liable for damages if the court determines that the person did not act in good faith in demanding the trust instrument.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS)'
+ elif address.state == 'IL':
+  trustee_powers = 'Illinois Trust Code (760 ILCS 3/101, et seq.)'
+  fiduciary_powers = 'Illinois Trust Code (760 ILCS 3/101, et seq.)'
+  firm = 'Estate Lawyers, PLLC'
+  community_property = False
+  vehicle_funding = 'We have provided you with an Illinois Beneficiary Affidavit for Vehicles form, which will allow you to name a beneficiary for vehicles.  You can choose a beneficiary from among your Trust or individual beneficiaries.  This beneficiary form allows for the vehicle to pass to the designated beneficiary without going through probate. Please put a copy of each notarized vehicle beneficiary designation form and the title to each vehicle in the “VEHICLES” section of your Trust portfolio. We recommend naming your Trust as the TOD Beneficiary as follows:'
+  hippa_statute = 'Illinois Medical Patient Rights Act'
+  cot_authority = '760 ILCS 3/1013'
+  cot_one = 'Pursuant to the provisions of 760 ILCS 3/1013(b), a certificate of trust may be signed or otherwise authenticated by any trustee.  A certificate of trust that will be used be recorded to affect title to real property should be acknowledged by a trustee.'
+  cot_two = 'Pursuant to the provisions of 760 ILCS 3/1013(d), a certificate of trust need not contain the dispositive terms of the trust.'
+  cot_three = 'Pursuant to the provisions of 760 ILCS 3/1013(e), a recipient of a certificate of trust may require the trustee to furnish copies of those excerpts from the original trust instrument and later amendments that designate the trustee and confer upon the trustee the power to act in the pending transaction.'
+  cot_four = 'Pursuant to the provisions of 760 ILCS 3/1013(f), a person who acts in reliance on a certificate of trust without knowledge that the representations contained in the certificate are incorrect is not liable to any person for acting and may assume without inquiry the existence of the facts contained in the certificate.  Knowledge of the terms of the trust may not be inferred solely from the fact that a copy of all or part of the trust instrument is held by the person relying upon the certificate.'
+  cot_five = 'Pursuant to the provisions of 760 ILCS 3/1013(g), a person who in good faith enters into a transaction in reliance on a certificate of trust may enforce the transaction against the trust property as if the representations contained in the certificate were correct.'
+  cot_six = 'Pursuant to the provisions of 760 ILCS 3/1013(h), a person making a demand for the trust instrument in addition to a certificate of trust or excerpts is liable for damages if the court determines that the person did not act in good faith in demanding the trust instrument.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS)'
+ elif address.state == 'IN':
+  trustee_powers = 'Indiana Trust Code'
+  fiduciary_powers = 'Indiana Probate Code'
+  firm = 'Estate Lawyers, PLLC'
+  community_property = False
+  vehicle_funding = 'The owner(s) of a vehicle may create an interest in the vehicle that is transferable on death (TOD) of the owner(s) by obtaining a Certificate of Title conveying the interest in the vehicle to one or more persons as transfer on death beneficiaries (each a “TOD Beneficiary”).  A TOD Beneficiary may be added to an Indiana Certificate of Title at the time of purchase (title transfer), or, if you already have title to the vehicle, you may apply for new title containing the TOD designation. Bring your proof of title transfer/Certificate of Title to your local BMV license branch and request a new Certificate of Title with a TOD Beneficiary designation. Once the new title is issued containing the TOD designation, the owner must sign and date the TOD signature line on the face of the title.  We recommend naming your Trust as the TOD Beneficiary as follows:'
+  cot_authority = 'Ind. Code § 30-4-4-5'
+  cot_one = 'Pursuant to the provisions of Ind. Code § 30-4-4-5(b), a certificate of trust may be signed or authenticated by any Trustee.'
+  cot_two = 'Pursuant to the provisions of Ind. Code § 30-4-4-5(d), a certificate of trust need not contain the dispositive provisions of the trust.'
+  cot_three = 'Pursuant to the provisions of Ind. Code § 30-4-4-5(f), a person who acts in reliance on a certificate of trust without knowledge that the representations contained in the certificate are incorrect is not liable to any person for so acting and may assume without inquiry the existence of the facts contained in the certificate. Knowledge of the terms of the trust may not be inferred solely from the fact that a copy of all or part of the trust instrument is held by the person relying on the certificate.'
+  cot_four = ' Pursuant to the provisions of Ind. Code § 30-4-4-5(g), a person who in good faith enters into a transaction in reliance on a certificate of trust may enforce the transaction against the trust property as if the representations contained in the certificate were correct.'
+  cot_five = 'Pursuant to the provisions of Ind. Code § 30-4-4-5(h), a person making a demand for the trust instrument in addition to a certificate of trust or excerpts from the original trust instrument is liable for damages if the court determines that a person did not act in good faith in demanding the trust instrument.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS)'
+ elif address.state == 'NC':
+  trustee_powers = 'North Carolina General Statutes § 32-27, incorporated by reference, and Chapter 36C, Article 8'
+  fiduciary_powers = 'N.C.G.S. § 32-27'
+  firm = 'Estate Lawyers, PLLC'
+  community_property = False
+  vehicle_funding = 'In North Carolina, you can designate a beneficiary for your motor vehicle through a “transfer-on-death” (TOD) registration. You can choose a beneficiary from among your Trust or individual beneficiaries.  This TOD registration allows for the vehicle to pass to the designated beneficiary without going through probate. Please contact your local Division of Motor Vehicles location to complete this process.  We recommend that you designate the Trust as the TOD beneficiary as follows:'
+  hippa_statute = 'North Carolina General Statutes Chapter 90, Article 29'
+  cot_authority = 'NC Gen Stat § 36C-10-1013'
+  cot_one = 'Pursuant to the provisions of NC Gen Stat § 36C-10-1013(b), a certificate of trust may be signed or otherwise authenticated by any trustee.'
+  cot_two = 'Pursuant to the provisions of NC Gen Stat § 36C-10-1013(d), a certificate of trust need not contain the dispositive terms of the trust.'
+  cot_three = 'Pursuant to the provisions NC Gen Stat § 36C-10-1013(e), a recipient of a certificate of trust may require the trustee to furnish copies of those excerpts from the original trust instrument and later amendments that designate the trustee and confer upon the trustee the power to act in the pending transaction.'
+  cot_four = 'Pursuant to the provisions of NC Gen Stat § 36C-10-1013(f), a person who acts in reliance on a certificate of trust without knowledge that the representations contained in the certificate are incorrect is not liable to any person for acting and may assume without inquiry the existence of the facts contained in the certificate.  Knowledge of the terms of the trust may not be inferred solely from the fact that a copy of all or part of the trust instrument is held by the person relying upon the certificate.'
+  cot_five = 'Pursuant to the provisions of NC Gen Stat § 36C-10-1013(g), a person who in good faith enters into a transaction in reliance on a certificate of trust may enforce the transaction against the trust property as if the representations contained in the certificate were correct.'
+  cot_six = 'Pursuant to the provisions of NC Gen Stat § 36C-10-1013(h), a person making a demand for the trust instrument in addition to a certificate of trust or excerpts is liable for damages if the court determines that the person did not act in good faith in demanding the trust instrument.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS)'
+ elif address.state == 'OR':
+  trustee_powers = 'Oregon Uniform Trust Code'
+  fiduciary_powers = 'ORS §§ 114.255 through 114.435'
+  firm = 'Estate Lawyers, PLLC'
+  community_property = False
+  vehicle_funding = 'We have provided you with an Oregon Department of Motor Vehicles Inheritance Affidavit form, which will allow you to name a beneficiary for vehicles.  You can choose a beneficiary from among your Trust or individual beneficiaries.  This beneficiary form allows for the vehicle to pass to the designated beneficiary without going through probate. Please put a copy of each notarized vehicle beneficiary designation form and the title to each vehicle in the “VEHICLES” section of your Trust portfolio. We recommend that you designate the Trust as the TOD beneficiary as follows:'
+  hippa_statute = 'ORS §§ 192.553 through 192.581 – Protected Health Information'
+  cot_authority = ' ORS § 130.860'
+  cot_one = 'The trust was established under the laws of the state of Oregon.'
+  cot_two = 'Pursuant to the provisions of ORS 130.860(3), a certificate of trust must be signed or otherwise authenticated by all the trustees.'
+  cot_three = 'Pursuant to the provisions of ORS 130.860(5), a certificate of trust need not contain the dispositive terms of the trust.'
+  cot_four = 'This certificate is being signed by all of the currently acting trustees and is being executed in conformity with the provisions of ORS 130.860.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS)'
+  lw_intro = 'C.R.S. § 15-18-104'
+ elif address.state == 'TX':
+  trustee_powers = 'Texas Trust Code, Texas Property Code Title 9, Subtitle B'
+  fiduciary_powers = 'by the Durable Power of Attorney Act, Texas Estates Code Title 2, Subtitle P'
+  firm = 'Estate Lawyers, PLLC'
+  community_property = True
+  vehicle_funding = 'We have provided you with a Texas Department of Motor Vehicles beneficiary designation form, which will allow you to name a beneficiary for vehicles.  You can choose a beneficiary from among your Trust or individual beneficiaries.  This beneficiary form allows for the vehicle to pass to the designated beneficiary without going through probate. Please put a copy of each notarized vehicle beneficiary designation form and the title to each vehicle in the “VEHICLES” section of your Trust portfolio. We recommend that you designate the Trust as the TOD beneficiary as follows:'
+  hippa_statute = 'Texas Health & Safety Code Chapter 181'
+  cot_authority = 'Texas Estates Code'
+  cot_one = 'The Trustors have the right to use and occupy real or personal property owned by any trust created by the Trust as the Trustors’ principal residence rent free and without charge for life or until the Trust is revoked or terminated, whichever occurs first. The Trustors intend that all eligible real or personal property which is owned by a trust created by the Trust qualify for the homestead exemption and that such trust is a “qualifying trust” as defined and described in Section 11.13(j) of the Texas Tax Code and, if applicable, Section 41.0021 of the Texas Property Code.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS)'
+  lw_intro = 'Texas Health and Human Safety Code, Chapter 166, Subchapter B'
+ elif address.state == 'UT':
+  trustee_powers = 'the Utah Uniform Trust Code'
+  fiduciary_powers = 'the Utah Uniform Probate Code'
+  firm = 'Trajan Estate Law Firm'
+  community_property = False
+  vehicle_funding = ' Generally, we suggest that you retain title to your personal automobile, motor homes, utility trailers, recreational vehicles and travel trailers (hereinafter “Vehicles”), provided you have no more than four (4).  If you have more than four Vehicles, then please visit https://dmv.utah.gov/ for information on transferring your vehicles into your trust.  The transfer to your trust should not trigger sales tax.  Be sure and take your Certificate of Trust with you to the Motor Vehicle Department. We have provided you with a Utah Department of Motor Vehicles survivor affidavit form, which will allow your successor trustee to transfer your vehicles into the Trust or to another person you may indicate. This survivor affidavit form allows for the vehicle to pass to your trust or another person you may indicate without going through probate.'
+  cot_authority = 'UT Code § 75-7-1013'
+  cot_one = 'Pursuant to the provisions of UT Code § 75-7-1013(2), a certificate of trust may be signed or otherwise authenticated by any trustee.'
+  cot_two = 'Pursuant to the provisions of UT Code § 75-7-1013(4), a certificate of trust need not contain the dispositive terms of the trust.'
+  cot_three = 'Pursuant to the provisions of UT Code § 75-7-1013(6), a person who acts in reliance on a certificate of trust without knowledge that the representations contained in the certificate are incorrect is not liable to any person for acting and may assume without inquiry the existence of the facts contained in the certificate.  Knowledge of the terms of the trust may not be inferred solely from the fact that a copy of all or part of the trust instrument is held by the person relying upon the certificate.'
+  cot_four = 'Pursuant to the provisions of UT Code § 75-7-1013(7), a person who in good faith enters into a transaction in reliance on a certificate of trust may enforce the transaction against the trust property as if the representations contained in the certificate were correct.'
+  cot_five = 'Pursuant to the provisions of UT Code § 75-7-1013(8), a person making a demand for the trust instrument in addition to a certificate of trust or excerpts is liable for costs, expenses, attorney fees, and damages if the court determines that the person did not act in good faith in demanding the trust instrument.'
+  cot_six = 'This certificate of Trust is being signed by all of the currently acting trustees and is being executed in conformity with the provisions of UT Code § 75-7-1013.'
+  benefits_trust = 'Social Security Disability payments, Medicare, Supplemental Security Income (SSI), In-Home Support Service (IHSS)'
+ else:
+  trustee_powers = ' Fail '
+  fiduciary_powers = ' Fail '
+  firm = ' Fail '
+  community_property = False
+  vehicle_funding = ' Fail '
+  cot_authority = ' Fail '
+  cot_one = ' Fail '
+  cot_two = ' Fail '
+  cot_three = ' Fail '
+  cot_four = ' Fail '
+  cot_five = 'Fail'
+  cot_six = 'Fail'
+  benefits_trust = 'Fail'
+ 
+---
+mandatory: True
+question: Your documents are ready for the ${ client.name.last }'s
+allow downloading: True
+zip filename: ${ client.name.last }_Estate_Plan.zip
+attachment code: |
+  documents
+
+---
+attachment:
+  name: Matter Summary
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – Matter Summary
+  docx template file: client_summary.docx
+  variable name: matter_summary
+
+---
+attachment:
+  name: The ${ trust_name }
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – Trust - ${ trust_name }
+  update reference: True
+  docx template file: trust_married.docx
+  variable name: trust
+  
+---
+attachment:
+  name: Certificate of Trust
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – Certificate of Trust
+  docx template file: certificate_of_trust_married.docx
+  variable name: cot
+   
+---
+attachment:
+  name: Assignment of Personal Property
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – Assignment of Personal Property
+  docx template file: assignment_of_personal_property_married.docx
+  variable name: assignment 
+
+---
+attachment:
+  name: Personal Property Memorandum of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Personal Property Memorandum
+  docx template file: personal_property_memo_married_client.docx
+  variable name: ppmc
+  
+---
+attachment:
+  name: Personal Property Memorandum of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Personal Property Memorandum
+  docx template file: personal_property_memo_married_spouse.docx
+  variable name: ppms
+  
+---
+attachment:
+  name: Funding Instructions
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – Fuding Instructions
+  docx template file: funding_instructions_married.docx
+  variable name: fi
+   
+---
+attachment: 
+  name: Last Will and Testament of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Pour-Over Will
+  docx template file: pour_over_will_married_client.docx
+  variable name: lwtc
+
+---
+attachment:
+  name: Self Proving Affidavit of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Self Proving Affidavit
+  docx template file: fl_affidavit_will_client.docx
+  variable name: affflc
+
+---
+attachment:
+  name: Self Proving Affidavit of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Self Proving Affidavit
+  docx template file: ga_affidavit_will_client.docx
+  variable name: affgac
+
+---
+attachment:
+  name: Self Proving Affidavit of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Self Proving Affidavit
+  docx template file: or_affidavit_will_client.docx
+  variable name: afforc
+
+---
+attachment:
+  name: Self Proving Affidavit of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Self Proving Affidavit
+  docx template file: tx_affidavit_will_client.docx
+  variable name: afftxc
+
+---
+attachment:
+  name: Last Will and Testament of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Pour-Over Will
+  docx template file: pour_over_will_married_spouse.docx
+  variable name: lwts
+
+---
+attachment:
+  name: Self Proving Affidavit of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Self Proving Affidavit
+  docx template file: fl_affidavit_will_spouse.docx
+  variable name: afffls
+
+---
+attachment:
+  name: Self Proving Affidavit of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Self Proving Affidavit
+  docx template file: ga_affidavit_will_spouse.docx
+  variable name: affgas
+
+---
+attachment:
+  name: Self Proving Affidavit of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Self Proving Affidavit
+  docx template file: or_affidavit_will_spouse.docx
+  variable name: affors
+
+---
+attachment:
+  name: Self Proving Affidavit of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Self Proving Affidavit
+  docx template file: tx_affidavit_will_spouse.docx
+  variable name: afftxs
+  
+---
+attachment:
+  name: Remembrance and Services Memorandum of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Remembrance and Services Memorandum
+  docx template file: remembrance_services_memorandum_client.docx
+  variable name: rsmc
+
+---
+attachment:
+  name: Remembrance and Services Memorandum of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Remembrance and Services Memorandum
+  docx template file: remembrance_services_memorandum_spouse.docx
+  variable name: rsms
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_az_married_client.docx
+  variable name: gdpoaazc
+   
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_co_married_client.docx
+  variable name: gdpoacoc
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_fl_married_client.docx
+  variable name: gdpoaflc
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_ga_married_client.docx
+  variable name: gdpoagac
+   
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_il_married_client.docx
+  variable name: gdpoailc
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_in_married_client.docx
+  variable name: gdpoainc
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_nc_married_client.docx
+  variable name: gdpoancc
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_or_married_client.docx
+  variable name: gdpoaorc
+   
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_tx_married_client.docx
+  variable name: gdpoatxc
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_ut_married_client.docx
+  variable name: gdpoautc
+
+---
+attachment:
+  name: Notice Regarding Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Notice Regarding Power of Attorney
+  docx template file: tx_poa_notice_client.docx
+  variable name: poantcc
+   
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_az_married_spouse.docx
+  variable name: gdpoaazs
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_co_married_spouse.docx
+  variable name: gdpoacos
+   
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_fl_married_spouse.docx
+  variable name: gdpoafls   
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_ga_married_spouse.docx
+  variable name: gdpoagas
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_il_married_spouse.docx
+  variable name: gdpoails
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_in_married_spouse.docx
+  variable name: gdpoains
+   
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_nc_married_spouse.docx
+  variable name: gdpoancs
+   
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_or_married_spouse.docx
+  variable name: gdpoaors
+   
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_tx_married_spouse.docx
+  variable name: gdpoatxs
+
+---
+attachment:
+  name: General Durable Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – General Durable Power of Attorney
+  docx template file: general_durable_power_of_attorney_ut_married_spouse.docx
+  variable name: gdpoauts
+
+---
+attachment:
+  name: Notice Regarding Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Notice Regarding Power of Attorney
+  docx template file: tx_poa_notice_spouse.docx
+  variable name: poantcs
+  
+---
+attachment:
+  name: Health Care and Mental Health Care Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Power of Attorney
+  update references: True
+  docx template file: health_care_power_of_attorney_az_married_client.docx
+  variable name: hcpoaazc
+
+---
+attachment:
+  name: Health Care and Mental Health Care Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Power of Attorney
+  docx template file: health_care_power_of_attorney_co_married_client.docx
+  variable name: hcpoacoc
+
+---
+attachment:
+  name: Designation of Health Care Surrogate of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Designation of Health Care Surrogate
+  docx template file: health_care_power_of_attorney_fl_married_client.docx
+  variable name: hcpoaflc
+   
+---
+attachment:
+  name: Georgia Advance Directive for Health Care of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Advance Directive for Health Care
+  docx template file: health_care_power_of_attorney_ga_married_client.docx
+  variable name: hcpoagac
+
+---
+attachment:
+  name: Power of Attorney for Health Care of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Power of Attorney for Health Care
+  docx template file: health_care_power_of_attorney_il_married_client.docx
+  variable name: hcpoailc
+   
+---
+attachment:
+  name: Health Care Advance Directive of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Advance Directive
+  docx template file: health_care_power_of_attorney_in_married_client.docx
+  variable name: hcpoainc
+
+---
+attachment:
+  name: Health Care Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Power of Attorney
+  docx template file: health_care_power_of_attorney_nc_married_client.docx
+  variable name: hcpoancc
+ 
+---
+attachment:
+  name: Oregon Advance Directive for Health Care of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Advance Directive for Health Care
+  docx template file: health_care_power_of_attorney_or_married_client.docx
+  variable name: hcpoaorc
+
+---
+attachment:
+  name: Health Care Power of Attorney of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Power of Attorney
+  docx template file: health_care_power_of_attorney_tx_married_client.docx
+  variable name: hcpoatxc
+
+---
+attachment:
+  name: Advance Health Care Directive of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Advance Health Care Directive
+  docx template file: health_care_power_of_attorney_ut_married_client.docx
+  variable name: hcpoautc
+
+---
+attachment:
+  name: Health Care and Mental Health Care Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Power of Attorney
+  docx template file: health_care_power_of_attorney_az_married_spouse.docx
+  variable name: hcpoaazs
+
+---
+attachment:
+  name: Health Care and Mental Health Care Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Power of Attorney
+  docx template file: health_care_power_of_attorney_co_married_spouse.docx
+  variable name: hcpoacos
+
+---
+attachment:
+  name: Designation of Health Care Surrogate of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Designation of Health Care Surrogate
+  docx template file: health_care_power_of_attorney_fl_married_spouse.docx
+  variable name: hcpoafls
+   
+---
+attachment:
+  name: Georgia Advance Directive for Health Care of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Advance Directive for Health Care
+  docx template file: health_care_power_of_attorney_ga_married_spouse.docx
+  variable name: hcpoagas
+
+---
+attachment:
+  name: Power of Attorney for Health Care of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Power of Attorney for Health Care
+  docx template file: health_care_power_of_attorney_il_married_spouse.docx
+  variable name: hcpoails
+   
+---
+attachment:
+  name: Health Care Advance Directive of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Advance Directive
+  docx template file: health_care_power_of_attorney_in_married_spouse.docx
+  variable name: hcpoains
+   
+---
+attachment:
+  name: Health Care Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Power of Attorney
+  docx template file: health_care_power_of_attorney_nc_married_spouse.docx
+  variable name: hcpoancs
+ 
+---
+attachment:
+  name: Oregon Advance Directive for Health Care of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Advance Directive for Health Care
+  docx template file: health_care_power_of_attorney_or_married_spouse.docx
+  variable name: hcpoaors
+
+---
+attachment:
+  name: Health Care Power of Attorney of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Health Care Power of Attorney
+  docx template file: health_care_power_of_attorney_tx_married_spouse.docx
+  variable name: hcpoatxs
+
+---
+attachment:
+  name: Advance Health Care Directive of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Advance Health Care Directive
+  docx template file: health_care_power_of_attorney_ut_married_spouse.docx
+  variable name: hcpoauts
+
+---
+attachment:
+  name: HIPPA Release of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – HIPPA Release
+  docx template file: hippa_authorization_state_married_client.docx
+  variable name: hippasc
+
+---
+attachment:
+  name: HIPPA Release of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – HIPPA Release
+  docx template file: hippa_authorization_federal_married_client.docx
+  variable name: hippafc
+
+---
+attachment:
+  name: HIPPA Release of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – HIPPA Release
+  docx template file: hippa_authorization_state_married_spouse.docx
+  variable name: hippass
+ 
+---
+attachment:
+  name: HIPPA Release of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – HIPPA Release
+  docx template file: hippa_authorization_federal_married_spouse.docx
+  variable name: hippafs
+
+---
+attachment:
+  name: Living Will of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Living Will
+  docx template file: living_will_standard_client.docx
+  variable name: lwsc
+
+---
+attachment:
+  name: Living Will of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Living Will
+  docx template file: living_will_il_client.docx
+  variable name: lwilc
+
+---
+attachment:
+  name: Living Will of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Living Will
+  docx template file: living_will_in_client.docx
+  variable name: lwinc
+
+---
+attachment:
+  name: Living Will of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Living Will
+  docx template file: living_will_in_client.docx
+  variable name: lwncc
+  
+---
+attachment:
+  name: Living Will of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Living Will
+  docx template file: living_will_standard_spouse.docx
+  variable name: lwss
+
+---
+attachment:
+  name: Living Will of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Living Will
+  docx template file: living_will_il_spouse.docx
+  variable name: lwils
+
+---
+attachment:
+  name: Living Will of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Living Will
+  docx template file: living_will_in_spouse.docx
+  variable name: lwins
+  
+---
+attachment:
+  name: Living Will of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Living Will
+  docx template file: living_will_nc_spouse.docx
+  variable name: lwncs
+
+---
+attachment:
+  name: Special Warranty Deed Client to Community Property
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Client to CP
+  docx template file: swd_clients_cp_az.docx
+  variable name: azswdcp
+
+---
+attachment:
+  name: Special Warranty Deed Clients to Trust
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Clients to Trust
+  docx template file: swd_clients_trust_az.docx
+  variable name: azswdt
+
+---
+attachment:
+  name: Special Warranty Deed Client to Community Property
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Client to CP
+  docx template file: swd_clients_cp_co.docx
+  variable name: coswdcp
+
+---
+attachment:
+  name: Special Warranty Deed Clients to Trust
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Clients to Trust
+  docx template file: swd_clients_trust_co.docx
+  variable name: coswdt
+
+---
+attachment:
+  name: Special Warranty Deed Client to Community Property
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Client to CP
+  docx template file: swd_clients_cp_fl.docx
+  variable name: flswdcp
+
+---
+attachment:
+  name: Special Warranty Deed Clients to Trust
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Clients to Trust
+  docx template file: swd_clients_trust_fl.docx
+  variable name: flswdt
+
+---
+attachment:
+  name: Special Warranty Deed Client to Community Property
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Client to CP
+  docx template file: swd_clients_cp_ga.docx
+  variable name: gaswdcp
+
+---
+attachment:
+  name: Special Warranty Deed Clients to Trust
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Clients to Trust
+  docx template file: swd_clients_trust_ga.docx
+  variable name: gaswdt
+
+---
+attachment:
+  name: Special Warranty Deed Client to Community Property
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Client to CP
+  docx template file: swd_clients_cp_in.docx
+  variable name: inswdcp
+
+---
+attachment:
+  name: Special Warranty Deed Clients to Trust
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Clients to Trust
+  docx template file: swd_clients_trust_in.docx
+  variable name: inswdt
+  
+---
+attachment:
+  name: Special Warranty Deed Client to Community Property
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Client to CP
+  docx template file: swd_clients_cp_tx.docx
+  variable name: txswdcp
+
+---
+attachment:
+  name: Special Warranty Deed Clients to Trust
+  filename: ${ client.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – SWD Clients to Trust
+  docx template file: swd_clients_trust_tx.docx
+  variable name: txswdt  
+
+---
+attachment:
+  name: Arizona Vehicle Beneficiary Designation of ${ client.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ client.name.last }, ${ client.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Vehicle Beneficiary Designation
+  pdf template file: azmvdbenec.pdf
+  variable name: dmvazc
+  pdftk: True
+  fields:
+    BName1: |
+      ${ trust_name } dated ${ trust_date }
+    OName: |
+      ${ client.name }
+
+---
+attachment:
+  name: Arizona Vehicle Beneficiary Designation of ${ spouse.name } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last }, ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') } – Vehicle Beneficiary Designation
+  pdf template file: azmvdbenes.pdf
+  variable name: dmvazs
+  pdftk: True
+  fields:
+    BName1: |
+      ${ trust_name } dated ${ trust_date }
+    OName: |
+      ${ spouse.name }
+
+---
+attachment:
+  name: Colorado Vehicle Beneficiary Designation of ${ client.name.first } and ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – Vehicle Beneficiary Designation
+  pdf template file: comvdbenes.pdf
+  variable name: dmvco
+  pdftk: True
+  fields:
+    Name of Owner and Co-Owner: |
+      ${ client.name } and ${ spouse.name }
+    Transfer on death to: |
+      ${ trust_name } dated ${ trust_date }
+
+---
+attachment:
+  name: Texas Vehicle Beneficiary Designation of ${ client.name.first } and ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – Vehicle Beneficiary Designation
+  pdf template file: txmvdbenes.pdf
+  variable name: dmvtx
+  pdftk: True
+  fields:
+    First Name Middle Name Last Name Suffix if any: |
+      ${ client.name }
+    Additional Owner if applicable First Name Middle Name Last Name Suffix if any: |
+      ${ spouse.name }
+    Address City State Zip: |
+      ${ address.address }, ${ address.city }, ${ address.state } ${ address.zip }
+    PrintedName1: |
+      ${ client.name }
+    PrintedName2: |
+      ${ spouse.name }
+
+---
+attachment:
+  name: Texas Vehicle Right of Survivorship of ${ client.name.first } and ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – Right of Survivorship Agreement
+  pdf template file: txmvdright_of_survivorship.pdf
+  variable name: dmvtxros
+  pdftk: True
+  fields:
+    First Name Middle Name Last Name Suffix if any: |
+      ${ client.name }
+    First Name Middle Name Last Name Suffix if any_2: |
+      ${ spouse.name }
+
+---
+attachment:
+  name: Texas Affidavit of Title of ${ client.name.first } and ${ spouse.name.first } ${ format_date(trust_date, format='yyyyMMdd') }
+  filename: ${ spouse.name.last } ${ format_date(trust_date, format='yyyyMMdd') } – Affidavit of Title Application
+  pdf template file: txmvapplication.pdf
+  variable name: dmvtxapplication
+  pdftk: True
+  fields:
+    16 Applicant First Name Middle Name Last Name Suffix if any: |
+      ${ client.name }
+    17 Applicant First Name Middle Name Last Name Suffix if any: |
+      ${ spouse.name }
+    19 Applicant County of Residence: |
+      ${ address.county }
+    18 Applicant Mailing Address City State Zip: |
+      ${ address.address }, ${ address.city }, ${ address.state } ${ address.zip }
+    Applicant Owner: |
+      ${ client.name }
+    Additional Aplicant: |
+      ${ spouse.name }
+    
+---
+attachment:
+  name: Failure
+  filename: Test Failure
+  docx template file: fail.docx
+  variable name: fail
